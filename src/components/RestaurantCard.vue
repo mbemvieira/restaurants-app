@@ -1,32 +1,30 @@
 <template>
   <v-card>
-    <v-container
-      fluid
-      grid-list-lg
-    >
-      <v-layout row wrap>
-        <v-flex xs12>
-          <v-card color="blue-grey darken-2" class="white--text">
-            <v-card-title primary-title>
-              <div>
-                <div class="headline">{{ value.name }}</div>
-                <span>{{ value.status }}</span>
-              </div>
-            </v-card-title>
-            <v-card-actions>
-              <v-btn flat dark>Listen now</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <v-card-title class="headline">{{ value.name || 'N/D' }}</v-card-title>
+    <v-card-subtitle>{{ value.status || 'N/D'}}</v-card-subtitle>
+
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="toggleFavorite">
+        <v-icon v-if="value.favorite">mdi-star</v-icon>
+        <v-icon v-else>mdi-star-outline</v-icon>
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
   props: {
-    value: Object
+    value: {
+      type: Object,
+      default: null
+    }
+  },
+  methods: {
+    toggleFavorite() {
+      this.$store.dispatch('toggleFavorite', this.value.id)
+    }
   }
 }
 </script>
