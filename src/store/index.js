@@ -34,7 +34,13 @@ export default new Vuex.Store({
       )
     },
     toggleFavorite({ commit }, id) {
-      commit('setFavorite', { id })
+      jsonApi.toggleFavorite(
+        id,
+        // handle success
+        restaurant => commit('setFavorite', { id, restaurant }),
+        // handle failure
+        () => {}
+      )
     }
   },
   modules: {
