@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="6" sm="12">
+    <v-col cols="12" sm="6" md="4" offset-md="2">
       <v-text-field
         label="Search"
         append-icon="mdi-magnify"
@@ -8,20 +8,20 @@
       ></v-text-field>
     </v-col>
 
-    <v-col cols="6" sm="12">
+    <v-col cols="12" sm="6" md="4">
       <v-combobox
         v-model="sortBy"
         :items="options"
-        chips
-        label="Filter"
+        label="Sort"
         item-value="key"
         item-text="description"
       ></v-combobox>
     </v-col>
 
+    <!-- TODO: Improve layout -->
     <template v-if="restaurants && restaurants.length > 0">
       <v-col
-        cols="12"
+        cols="12" sm="6" md="4"
         v-for="(restaurant, index) in restaurants"
         :key="index"
       >
@@ -30,7 +30,7 @@
     </template>
 
     <template v-else>
-      <v-col cols="12">
+      <v-col cols="12" md="8" offset-md="2">
         <span>No restaurants found!</span>
       </v-col>
     </template>

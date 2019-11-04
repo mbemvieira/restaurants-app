@@ -1,5 +1,6 @@
 <template>
   <v-card>
+    <!-- TODO: Improve UI -->
     <v-card-title class="headline">{{ value.name || 'N/D' }}
       <v-chip
         class="ma-2"

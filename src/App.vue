@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-toolbar-title>Take Away</v-toolbar-title>
+      <v-toolbar-title>Restaurants App</v-toolbar-title>
     </v-app-bar>
 
     <v-content>
