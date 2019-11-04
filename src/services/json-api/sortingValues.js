@@ -6,38 +6,52 @@ export const POPULARITY = 4
 export const AVERAGE_PRODUCT_PRICE = 5
 export const DELIVERY_COSTS = 6
 export const MIN_COST = 7
+export const TOP_RESTAURANTS = 8
 
 export default {
   [BEST_MATCH]: {
     key: 'bestMatch',
-    description: 'Best Match'
+    description: 'Best Match',
+    order: 'desc',
   },
   [NEWEST]: {
     key: 'newest',
-    description: 'Newest'
+    description: 'Newest',
+    order: 'desc',
   },
   [RATINGAVERAGE]: {
     key: 'ratingAverage',
-    description: 'Rating Average'
+    description: 'Rating Average',
+    order: 'desc',
   },
   [DISTANCE]: {
     key: 'distance',
-    description: 'Distance'
+    description: 'Distance',
+    order: 'asc',
   },
   [POPULARITY]: {
     key: 'popularity',
-    description: 'Popularity'
+    description: 'Popularity',
+    order: 'desc',
   },
   [AVERAGE_PRODUCT_PRICE]: {
     key: 'averageProductPrice',
-    description: 'Average Product Price'
+    description: 'Average Product Price',
+    order: 'asc',
   },
   [DELIVERY_COSTS]: {
     key: 'deliveryCosts',
-    description: 'Delivery Costs'
+    description: 'Delivery Costs',
+    order: 'asc',
   },
   [MIN_COST]: {
     key: 'minCost',
-    description: 'Min Cost'
+    description: 'Min Cost',
+    order: 'asc',
+  },
+  [TOP_RESTAURANTS]: {
+    key: 'topRestaurants',
+    description: 'Top Restaurants',
+    order: 'desc',
   },
 }

@@ -1,6 +1,19 @@
 <template>
   <v-card>
-    <v-card-title class="headline">{{ value.name || 'N/D' }}</v-card-title>
+    <v-card-title class="headline">{{ value.name || 'N/D' }}
+      <v-chip
+        class="ma-2"
+        color="primary"
+        text-color="white"
+      >
+        {{ sortBy.description || 'N/D' }}:
+        {{
+          value.sortingValues[sortBy.key] != null
+            ? value.sortingValues[sortBy.key]
+            : 'N/D'
+        }}
+      </v-chip>
+    </v-card-title>
     <v-card-subtitle>{{ value.status || 'N/D'}}</v-card-subtitle>
 
     <v-card-actions>
@@ -14,12 +27,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: {
     value: {
       type: Object,
       default: null
     }
+  },
+  computed: {
+    ...mapState([
+      'sortBy',
+    ]),
   },
   methods: {
     toggleFavorite() {

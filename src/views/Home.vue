@@ -1,12 +1,21 @@
 <template>
   <v-row>
-    <v-col cols="12">
+    <v-col cols="6" sm="12">
+      <v-text-field
+        label="Search"
+        append-icon="mdi-magnify"
+        v-model="search"
+      ></v-text-field>
+    </v-col>
+
+    <v-col cols="6" sm="12">
       <v-combobox
-        v-model="select"
+        v-model="sortBy"
         :items="options"
         chips
         label="Filter"
-        @change="changeOption($event)"
+        item-value="key"
+        item-text="description"
       ></v-combobox>
     </v-col>
 
@@ -31,7 +40,6 @@
 <script>
 import { mapState } from 'vuex'
 import RestaurantCard from '@/components/RestaurantCard.vue'
-// import sortingValues from '@/models/options'
 
 export default {
   name: 'home',
@@ -39,29 +47,32 @@ export default {
     RestaurantCard
   },
   beforeCreate() {
-    this.$store.dispatch('get', null)
+    this.$store.dispatch('getOptions')
+    this.$store.dispatch('get')
   },
-  data: () => ({
-    search: '',
-    select: 'bestMatch',
-    options: [
-      'bestMatch',
-      'newest',
-      'ratingAverage',
-      'distance',
-      'popularity',
-      'averageProductPrice',
-      'deliveryCosts',
-      'minCost',
-    ]
-  }),
   computed: {
-    ...mapState(['restaurants'])
-  },
-  methods: {
-    changeOption(option) {
-      this.$store.dispatch('get', option)
-    }
+    ...mapState([
+      'restaurants',
+      'options',
+    ]),
+    sortBy: {
+      get() {
+        return this.$store.state.sortBy
+      },
+      set(value) {
+        this.$store.commit('setSortBy', { sortBy: value })
+        this.$store.dispatch('get')
+      }
+    },
+    search: {
+      get() {
+        return this.$store.state.search
+      },
+      set(value) {
+        this.$store.commit('setSearch', { search: value })
+        this.$store.dispatch('get')
+      }
+    },
   },
 }
 </script>
