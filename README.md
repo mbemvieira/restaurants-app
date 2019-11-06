@@ -1,6 +1,6 @@
 # restaurants-app
 
-Make sure you have installed NodeJS and NPM versions that will be supported by Vue CLI version 3.
+Make sure you have installed NodeJS and NPM versions that are be supported by Vue CLI version 3.
 
 [Vue CLI 3 Installation Guide](https://cli.vuejs.org/guide/installation.html)
 
