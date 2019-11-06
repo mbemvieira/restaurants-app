@@ -7,7 +7,9 @@ const copyRestaurant = restaurant => {
   return restaurantCopy
 }
 
-const optionList = Object.values(sortingValues).map(sortingValue => Object.assign({}, sortingValue))
+const optionList = Object.values(sortingValues).map(
+  sortingValue => Object.assign({}, sortingValue)
+)
 
 const restaurantList = restaurants.map((restaurant, index) => {
   const restaurantCopy = copyRestaurant(restaurant)
@@ -21,7 +23,6 @@ const restaurantList = restaurants.map((restaurant, index) => {
   return restaurantCopy
 })
 
-// TODO: Show user friendly strings
 const statusPriority = {
   'open': 0,
   'order ahead': 1,
